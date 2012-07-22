@@ -1,0 +1,34 @@
+<h1>Добавление страницы</h1>
+<%= form_for :page, :url => { :action => :create } do |f| %>
+  <% if @page.errors.any? %>
+  <div style="left-padding: 10px; color:#B22222; border: 1px solid black">
+    <h2>При добавлении страницы возникли следующие ошибки:</h2>
+    <ul>
+    <% @page.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+    <%= f.hidden_field :parentID, :value => @page.parentID %>
+    <%= f.hidden_field :urlPage, :value => @page.urlPage %>
+  <p>
+    <%= f.label :name, 'Имя страницы' %><br>
+    <%= f.text_field :name %>
+  </p>
+  
+  <p>
+    <%= f.label :title, 'Название страницы' %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :body, 'Текст страницы' %><br>
+    <%= f.text_area :body %>
+  </p>
+ 
+  <p>
+    <%= f.submit 'Добавить'%>
+  </p>
+<% end %>

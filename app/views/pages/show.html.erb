@@ -1,0 +1,20 @@
+<div style="margin: 10px 0px 10px 0px; background-color: orange; border: 1px solid black">
+	<%= link_to 'На главную', root_path %>
+	<%= link_to 'Добавить подстраницу', :action => "add", :urlPage => @page.urlPage %>
+	<%= link_to 'Редактировать', "/" + @page.urlPage + "/edit" %></br>
+</div>
+<h1><%= @page.title %></h1>
+<% tree = GetPagesTreeHTML(@page.subpages)%>
+<% unless tree.empty?%>
+	<div style="border: 1px solid black"><font size = 4><b><i>Подстраницы:</i></b></font></br>
+		<%= tree.html_safe %>
+	</div>
+<% end %>
+<div style="margin-top: 10px; border: 1px solid black"><font size = 4><b><i>Содержание:</i></b></font></br>
+		<%= @page.body.html_safe %></br>
+</div>	
+
+</div>
+
+
+

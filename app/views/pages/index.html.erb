@@ -1,0 +1,11 @@
+<div style="margin: 10px 0px 10px 0px; background-color: orange; border: 1px solid black">
+	<%= link_to "Добавить корневую страницу", :action => "add", :urlPage => "" %>
+</div>
+<h1>Добро пожаловать на мини-сайт!</h1>
+<% if flash[:notice] %>
+    <div style="color:#B22222;"> 
+    	<font size = 5><b><%= flash[:notice] %></b></font>
+    </div>
+<% end %>
+
+<%= GetPagesTreeHTML(@pages).html_safe %>

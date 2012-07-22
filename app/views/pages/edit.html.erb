@@ -1,0 +1,26 @@
+<h1>Редактирование страницы</h1>
+<%= form_for :page, :url => { :action => :update, :id => @page.id }, :method => :put do |f| %>
+  <% if @page.errors.any? %>
+  <div style="left-padding: 10px; color:#B22222; border: 1px solid black">
+    <h2>При редактировании страницы возникли следующие ошибки:</h2>
+    <ul>
+    <% @page.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %> 
+  <p>
+    <%= f.label :title, 'Название страницы' %><br>
+    <%= f.text_field :title, :value => @page.title %>
+  </p>
+ 
+  <p>
+    <%= f.label :body, 'Текст страницы' %><br>
+    <%= f.text_area :body, :value => @page.body %>
+  </p>
+ 
+  <p>
+    <%= f.submit 'Сохранить'%>
+  </p>
+<% end %>

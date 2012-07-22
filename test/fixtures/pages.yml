@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  parentID: MyString
+  name: MyString
+  urlPage: MyString
+  head: MyString
+  body: MyString
+
+two:
+  parentID: MyString
+  name: MyString
+  urlPage: MyString
+  head: MyString
+  body: MyString
